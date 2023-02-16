@@ -1,6 +1,8 @@
 package com.praneet.expensetrackerspring.entity;
 
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +26,7 @@ public class TransactionEntity {
 	private int transactionAmount;
 	
 	@Column(name="date")
-	private String transactionDate;
+	private java.time.LocalDate transactionDate;
 	
 	@Column(name="type")
 	private int transactionType;
@@ -36,7 +38,7 @@ public class TransactionEntity {
 	public TransactionEntity(String theTransactionName, int theTransactionAmount, String theTransactionDate,int theTransactionType) {
 		this.transactionName = theTransactionName;
 		this.transactionAmount = theTransactionAmount;
-		this.transactionDate = theTransactionDate;
+		this.transactionDate = LocalDate.parse(theTransactionDate);
 		this.transactionType  = theTransactionType;
 	}
 
@@ -65,11 +67,11 @@ public class TransactionEntity {
 	}
 
 	public String getTransactionDate() {
-		return transactionDate;
+		return transactionDate.toString();
 	}
 
 	public void setTransactionDate(String transactionDate) {
-		this.transactionDate = transactionDate;
+		this.transactionDate = LocalDate.parse(transactionDate);
 	}
 
 	public int getTransactionType() {

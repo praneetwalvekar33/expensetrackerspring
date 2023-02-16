@@ -19,6 +19,12 @@ public class TrackerServiceImplementation implements TrackerService {
 	}
 	
 	@Override
+	public void addTransaction(TransactionEntity theTransaction) {
+		theTransaction.setId(0);
+		expenseTrackerDao.addTransaction(theTransaction);
+	}
+
+	@Override
 	public List<TransactionEntity> getAllTransactionInfo() {
 		List<TransactionEntity> transactionList = expenseTrackerDao.getAllTransactionInfo();
 		System.out.println(">>>In service implementation");
