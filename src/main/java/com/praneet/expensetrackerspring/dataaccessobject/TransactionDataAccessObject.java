@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.praneet.expensetrackerspring.entity.TransactionEntity;
 
@@ -22,6 +23,7 @@ public class TransactionDataAccessObject implements ExpenseTrackerDAO {
 	}
 	
 	@Override
+	@Transactional
 	public List<TransactionEntity> getAllTransactionInfo() {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
@@ -31,6 +33,14 @@ public class TransactionDataAccessObject implements ExpenseTrackerDAO {
 		List<TransactionEntity> transactionList = theQuery.getResultList();
 		
 		return transactionList;
+	}
+
+	@Override
+	@Transactional
+	public void addTransaction(TransactionEntity theTransaction) {
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		currentSession.persist(theTransaction);
 	}
 
 }

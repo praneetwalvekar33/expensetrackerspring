@@ -7,4 +7,6 @@ import com.praneet.expensetrackerspring.entity.TransactionEntity;
 public interface TrackerService {
 	
 	public List<TransactionEntity> getAllTransactionInfo();
+	
+	public void addTransaction(TransactionEntity theTransaction);
 }
