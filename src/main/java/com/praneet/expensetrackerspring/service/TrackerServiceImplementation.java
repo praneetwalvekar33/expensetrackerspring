@@ -25,6 +25,12 @@ public class TrackerServiceImplementation implements TrackerService {
 	}
 
 	@Override
+	public long getTotalCreditValue() {
+		long totalCreditValue = expenseTrackerDao.getTotalCredit();
+		return totalCreditValue;
+	}
+
+	@Override
 	public List<TransactionEntity> getAllTransactionInfo() {
 		List<TransactionEntity> transactionList = expenseTrackerDao.getAllTransactionInfo();
 		System.out.println(">>>In service implementation");
