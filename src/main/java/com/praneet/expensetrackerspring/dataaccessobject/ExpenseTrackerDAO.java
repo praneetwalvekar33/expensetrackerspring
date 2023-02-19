@@ -11,5 +11,7 @@ public interface ExpenseTrackerDAO {
 	public void addTransaction(TransactionEntity theTransaction);
 	
 	public long getTotalCredit();
+	
+	public long getTotalExpense();
 
 }

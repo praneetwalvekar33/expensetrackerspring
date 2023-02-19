@@ -41,4 +41,11 @@ public class ExpenseTrackerController {
 		
 		return totalCredit;
 	}
+	
+	@GetMapping("/totalExpense")
+	public long getTotalExpense() {
+		
+		long totalExpense = trackerService.getTotalExpense();
+		return totalExpense;
+	}
 }
