@@ -35,4 +35,17 @@ public class ExpenseTrackerController {
 		return "Transaction added successfully";
 	}
 
+	@GetMapping("/totalIncome")
+	public long getTotalIncome() {
+		long totalCredit = trackerService.getTotalCreditValue();
+		
+		return totalCredit;
+	}
+	
+	@GetMapping("/totalExpense")
+	public long getTotalExpense() {
+		
+		long totalExpense = trackerService.getTotalExpense();
+		return totalExpense;
+	}
 }
