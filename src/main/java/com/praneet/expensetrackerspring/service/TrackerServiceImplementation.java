@@ -31,6 +31,12 @@ public class TrackerServiceImplementation implements TrackerService {
 	}
 
 	@Override
+	public long getTotalExpense() {
+		long totalExpense = expenseTrackerDao.getTotalExpense();
+		return totalExpense;
+	}
+
+	@Override
 	public List<TransactionEntity> getAllTransactionInfo() {
 		List<TransactionEntity> transactionList = expenseTrackerDao.getAllTransactionInfo();
 		System.out.println(">>>In service implementation");

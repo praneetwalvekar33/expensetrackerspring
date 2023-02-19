@@ -11,4 +11,6 @@ public interface TrackerService {
 	public void addTransaction(TransactionEntity theTransaction);
 	
 	public long getTotalCreditValue();
+	
+	public long getTotalExpense();
 }

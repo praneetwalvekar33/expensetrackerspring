@@ -37,6 +37,19 @@ public class TransactionDataAccessObject implements ExpenseTrackerDAO {
 
 	@Override
 	@Transactional
+	public long getTotalExpense() {
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		Query<Long> theQuery = currentSession.createQuery("select sum(transaction.transactionAmount) from TransactionEntity transaction where transaction.transactionType=:transaction_type",Long.class); 
+		
+		theQuery.setParameter("transaction_type", 2);
+		
+		long totalExpense = theQuery.list().get(0);
+		return totalExpense;
+	}
+
+	@Override
+	@Transactional
 	public void addTransaction(TransactionEntity theTransaction) {
 		Session currentSession = entityManager.unwrap(Session.class);
 		
